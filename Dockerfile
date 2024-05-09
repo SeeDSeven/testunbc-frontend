@@ -1,5 +1,5 @@
 # Stage 1: Build the Angular app
-FROM node:latest as build
+FROM node:18.20.2-alpine as build
 
 # Set the working directory
 WORKDIR /usr/local/app
@@ -24,4 +24,4 @@ COPY --from=build /usr/local/app/dist/testunbc-frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
-EXPOSE 80
+EXPOSE 81
