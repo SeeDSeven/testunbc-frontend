@@ -24,4 +24,4 @@ COPY --from=build /usr/local/app/dist/testunbc-frontend /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
-EXPOSE 81
+EXPOSE 80
