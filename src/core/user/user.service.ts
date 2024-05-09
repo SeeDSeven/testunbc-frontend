@@ -146,8 +146,8 @@ export class UserService {
         );
     }
 
-    updateUser(user: User): Observable<User> {
-        return this._httpClient.put<User>(this.urlApiAuth + '/', user).pipe(
+    updateUser(id: number, user: User): Observable<User> {
+        return this._httpClient.put<User>(this.urlApiAuth + '/' + id, user).pipe(
             take(1),
             switchMap((user: User) => {
                 this._user.next(user);
@@ -156,8 +156,9 @@ export class UserService {
             })
         );
     }
-    deleteuser(id: string): Observable<boolean> {
-        return this._httpClient.delete<any>(this.urlApiAuth + id).pipe(
+
+    deleteuser(id: string): Observable<any> {
+        return this._httpClient.delete<any>(this.urlApiAuth + '/' +id).pipe(
             take(1),
             switchMap((data: any) => {
                 this.updateUserInList(this.getUserByIdInList(+id));
