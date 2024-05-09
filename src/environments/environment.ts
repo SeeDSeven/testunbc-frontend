@@ -5,6 +5,6 @@
 export const environment = {
   production: false,
   //BASE_URL: 'http://localhost:8000/api',
-  BASE_URL: 'http://190.253.245.9:8001/api',
+  BASE_URL: 'http://190.253.245.9:8007/api',
 };
 
