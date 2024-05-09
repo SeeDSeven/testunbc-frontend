@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit{
       password: ['', Validators.required],
       grant_type: ['password'],
       scope: ['*'],
-      client_id: [2],
-      client_secret: ['LqGALbLSDUIErVidTY2LU598qrSxYtm3YYqKGLWS'],
+      client_id: [1],
+      client_secret: ['u5aIBN3c1ZMnwovs1Mk7zryHfWDEgte8IutNLVuQ'],
     });
 
   }
