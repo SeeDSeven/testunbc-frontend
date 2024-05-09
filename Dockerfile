@@ -1,3 +1,4 @@
+# Stage 1: Build the Angular app
 FROM node:latest as build
 
 # Set the working directory
@@ -14,12 +15,13 @@ RUN npm run build
 
 
 # Stage 2: Serve app with nginx server
-
-# Use official nginx image as the base image
 FROM nginx:latest
 
 # Copy the build output to replace the default nginx contents.
 COPY --from=build /usr/local/app/dist/testunbc-frontend /usr/share/nginx/html
+
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
 EXPOSE 80
