@@ -16,7 +16,6 @@ import {
     tap,
     throwError,
 } from 'rxjs';
-import {jwtDecode} from 'jwt-decode';
 import { User } from './user.types';
 import { environment } from 'src/environments/environment';
 
@@ -24,7 +23,7 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root',
 })
 export class UserService {
-    private urlApiAuth: string = environment.BASE_URL + 'user';
+    private urlApiAuth: string = environment.BASE_URL + '/user';
     private _user_session: BehaviorSubject<User> = new BehaviorSubject<User>(null);
     private _user: BehaviorSubject<User > = new BehaviorSubject<User>(null);
     private _users: BehaviorSubject<User[] > = new BehaviorSubject<User[]>(null);
@@ -49,7 +48,7 @@ export class UserService {
         localStorage.setItem('userSession', JSON.stringify(value));
     }
 
-    get user_session$(): Observable<User> 
+    get user_session$(): Observable<User>
     {
         this._user_session.next(JSON.parse(localStorage.getItem('userSession')) as User);
         return this._user_session.asObservable();
@@ -105,7 +104,7 @@ export class UserService {
 
     _decodeToken(token: string): any {
         try {
-            const decodedToken = jwtDecode(token);
+            const decodedToken = token;
             return decodedToken;
         } catch (error) {
             console.error('Error when decode token:', error);

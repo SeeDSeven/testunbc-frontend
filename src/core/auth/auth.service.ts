@@ -59,15 +59,11 @@ export class AuthService
       }
 
       return this._httpClient.post<LoginResponse>(this.urlApiAuth + '/login', credentials).pipe(
-          catchError(error => {
-              // Manejar el error aquí si es necesario
-              return throwError('Error en la autenticación');
-          }),
           switchMap((response: LoginResponse) => {
               this.accessToken = response.access_token;
               this._authenticated = true;
               //this._userService.user_session = response;
-              return response;
+              return of(response);
           })
       );
   }

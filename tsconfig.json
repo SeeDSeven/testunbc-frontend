@@ -2,32 +2,52 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    //"strictPropertyInitialization": false,
+    //"strictNullChecks": true,
+    //"noImplicitAny": true,
+    //"noImplicitThis": true,
+    //"alwaysStrict": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    //"strict": true,
+    //"noImplicitOverride": false,
+    //"noPropertyAccessFromIndexSignature": true,
+    //"noImplicitReturns": false,
+    //"noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
+    "paths": {
+      "pdftools": [
+        "dist/pdftools/pdftools",
+        "dist/pdftools"
+      ]
+    },
+    "target": "es2022",
+    "module": "es2022",
+    "useUnknownInCatchVariables": false,
     "lib": [
-      "ES2022",
+      "es2022",
       "dom"
+    ],
+    "skipLibCheck": true,
+    //"types": ["googlemaps"],
+    "typeRoots": [
+      "node_modules/@types"
     ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    //"strictInjectionParameters": true,
+    //"strictInputAccessModifiers": true,
+    //"strictTemplates": true,
+    //"fullTemplateTypeCheck": true,
+    //"noImplicitReturns": false,
+    //"noImplicitAny": false,
+    //"useUnknownInCatchVariables": false,
   }
 }
